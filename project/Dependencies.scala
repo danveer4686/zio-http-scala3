@@ -2,6 +2,7 @@ import sbt._
 object Dependencies {
   private val calibanVersion      = "0.10.1"
   private val zhttpVersion        = "1.0.0.0-RC17"
+  private val zioInteropVersion   = "3.1.1.0"
   //private val jwtVersion        = "5.0.0"
   //private val scalacacheVersion = "0.28.0"
   private val doobieVersion       = "1.0.0-M3"
@@ -16,13 +17,18 @@ object Dependencies {
   private val zioVersionTest        = "1.0.9"
 
   lazy val caliban = List(
-    "com.github.ghostdogpr" %% "caliban" % calibanVersion,
+  "com.github.ghostdogpr" %% "caliban" % calibanVersion,
     "com.github.ghostdogpr" %% "caliban-zio-http" %  calibanVersion
   )
   lazy val zhttp = List(
     "io.d11" %% "zhttp" % zhttpVersion
   )
-  lazy val postgres = List(
+
+  lazy val zioInterop = List(
+  "dev.zio" %% "zio-interop-cats" % zioInteropVersion
+  )
+
+  lazy val doobie = List(
     "org.tpolecat" %% "doobie-core"     % doobieVersion ,
     "org.tpolecat" %% "doobie-postgres" % doobieVersion ,
     "org.tpolecat" %% "doobie-h2"       % doobieVersion ,
